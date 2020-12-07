@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'CUSTOMERAPP',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -74,13 +76,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'CUSTOMERPRO.wsgi.application'
 
 
-from django.core.wsgi import get_wsgi_application
-from whitenoise.django import DjangoWhiteNoise
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bootcamp.settings")
-
-application = get_wsgi_application()
-application = DjangoWhiteNoise(application)
 
 
 # Database
