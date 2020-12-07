@@ -132,3 +132,4 @@ STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 django_heroku.settings(locals())
 
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
