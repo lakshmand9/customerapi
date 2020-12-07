@@ -50,15 +50,12 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-]
 
 
 ROOT_URLCONF = 'CUSTOMERPRO.urls'
@@ -131,14 +128,20 @@ USE_TZ = True
 
 
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST= [
+    "https://localhost:3000"
+]
 
 
 # Static files (CSS, JavaScr/////////ipt, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 
-STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'staticfiles'),
+)
 
 django_heroku.settings(locals())
